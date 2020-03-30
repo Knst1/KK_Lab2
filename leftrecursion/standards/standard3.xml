@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar name="G1">
+    <terminalsymbols>
+        <term name="(" spell="("/>
+        <term name=")" spell=")"/>
+        <term name="*" spell="*"/>
+        <term name="+" spell="+"/>
+        <term name="-" spell="-"/>
+        <term name="/" spell="/"/>
+        <term name="EPSOLON" spell=""/>
+        <term name="id" spell="id"/>
+    </terminalsymbols>
+    <nonterminalsymbols>
+        <nonterm name="E"/>
+        <nonterm name="E1"/>
+        <nonterm name="E11"/>
+        <nonterm name="E12"/>
+        <nonterm name="E2"/>
+        <nonterm name="F"/>
+        <nonterm name="T"/>
+        <nonterm name="T1"/>
+        <nonterm name="T11"/>
+        <nonterm name="T12"/>
+        <nonterm name="T2"/>
+        <nonterm name="T3"/>
+    </nonterminalsymbols>
+    <productions>
+        <production>
+            <lhs name="E"/>
+            <rhs>
+                <symbol type="nonterm" name="T"/>
+                <symbol type="nonterm" name="E2"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="E1"/>
+            <rhs>
+                <symbol type="term" name="+"/>
+                <symbol type="nonterm" name="T"/>
+                <symbol type="nonterm" name="E11"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="E1"/>
+            <rhs>
+                <symbol type="term" name="-"/>
+                <symbol type="nonterm" name="T"/>
+                <symbol type="nonterm" name="E12"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="E11"/>
+            <rhs>
+                <symbol type="nonterm" name="E1"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="E11"/>
+            <rhs>
+                <symbol type="term" name="EPSOLON"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="E12"/>
+            <rhs>
+                <symbol type="nonterm" name="E1"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="E12"/>
+            <rhs>
+                <symbol type="term" name="EPSOLON"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="E2"/>
+            <rhs>
+                <symbol type="nonterm" name="E1"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="E2"/>
+            <rhs>
+                <symbol type="term" name="EPSOLON"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="F"/>
+            <rhs>
+                <symbol type="term" name="id"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="F"/>
+            <rhs>
+                <symbol type="term" name="("/>
+                <symbol type="nonterm" name="E"/>
+                <symbol type="term" name=")"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="T"/>
+            <rhs>
+                <symbol type="term" name="id"/>
+                <symbol type="nonterm" name="T3"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="T"/>
+            <rhs>
+                <symbol type="term" name="("/>
+                <symbol type="nonterm" name="E"/>
+                <symbol type="term" name=")"/>
+                <symbol type="nonterm" name="T2"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="T1"/>
+            <rhs>
+                <symbol type="term" name="*"/>
+                <symbol type="nonterm" name="F"/>
+                <symbol type="nonterm" name="T11"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="T1"/>
+            <rhs>
+                <symbol type="term" name="/"/>
+                <symbol type="nonterm" name="F"/>
+                <symbol type="nonterm" name="T12"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="T11"/>
+            <rhs>
+                <symbol type="nonterm" name="T1"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="T11"/>
+            <rhs>
+                <symbol type="term" name="EPSOLON"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="T12"/>
+            <rhs>
+                <symbol type="nonterm" name="T1"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="T12"/>
+            <rhs>
+                <symbol type="term" name="EPSOLON"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="T2"/>
+            <rhs>
+                <symbol type="nonterm" name="T1"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="T2"/>
+            <rhs>
+                <symbol type="term" name="EPSOLON"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="T3"/>
+            <rhs>
+                <symbol type="nonterm" name="T1"/>
+            </rhs>
+        </production>
+        <production>
+            <lhs name="T3"/>
+            <rhs>
+                <symbol type="term" name="EPSOLON"/>
+            </rhs>
+        </production>
+    </productions>
+    <startsymbol name="E"/>
+</grammar>
